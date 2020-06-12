@@ -39,7 +39,7 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
-player = Player("Virginia", room['outside'])
+player = Player("Virginia", room['outside'], "Item")
 
 # Write a loop that:
 while True:
@@ -48,7 +48,6 @@ while True:
     print(player.current_room.name)
     # * Prints the current description (the textwrap module might be useful here).
     print(player.current_room.description)
-    print(player.current_room.list)
     # * Waits for user input and decides what to do.
     input_var = input("Type a direction.")
     #
@@ -61,3 +60,5 @@ while True:
     if input_var in {'n', 's', 'e', 'w'}:
         if hasattr(player.current_room, f'{input_var}_to'):
             player.current_room = getattr(player.current_room, f'{input_var}_to')
+        else:
+            print("You can't go that way!")
