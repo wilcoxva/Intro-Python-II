@@ -38,6 +38,7 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
+player = Player("Virginia", "outside")
 
 # Write a loop that:
 #
@@ -49,3 +50,9 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+print(player.current_room.name)
+print("Type q to quit.")
+input_var = input("Type a direction.")
+if input_var in {'n', 's', 'e', 'w'}:
+    if hasattr(player.current_room, f'{input_var}_to'):
+        player.current_room = getattr(player.current_room, f'{input_var}_to')
