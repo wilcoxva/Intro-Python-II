@@ -48,6 +48,7 @@ while True:
     print(player.current_room.name)
     # * Prints the current description (the textwrap module might be useful here).
     print(player.current_room.description)
+    print(player.current_room.list)
     # * Waits for user input and decides what to do.
     input_var = input("Type a direction.")
     #
